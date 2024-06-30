@@ -17,4 +17,5 @@ export type GalleryExpandedProps = {
   expanded: boolean;
   onClick: (index: number) => void;
   wallpaper: WallpaperProps;
+  expandedClick: () => void;
 };

@@ -1,12 +1,6 @@
-type Data = {
-  id?: number;
-  image: string;
-  color: string;
-  title?: string;
-  top?: string;
-  border?: string;
-}[];
-export const wallpaper: Data = [
+import { WallpaperProps } from "../types";
+
+export const wallpaper: WallpaperProps = [
   {
     id: 0,
     image: "image1.jpg",
@@ -26,14 +20,14 @@ export const wallpaper: Data = [
     id: 2,
     image: "image3.jpg",
     color: "purple",
-    title: "cyber punk",
+    title: "Cyber Punk",
     border: "border-purple-600",
   },
   {
     id: 3,
     image: "image3.jpg",
     color: "purple",
-    title: "cyber punk",
+    title: "Cyber Punk",
     border: "border-purple-600",
   },
 ];
