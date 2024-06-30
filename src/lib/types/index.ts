@@ -1,7 +1,8 @@
 export type BackgroundProps = {
-  src: string;
-  alt: string | undefined;
+  src?: string;
+  alt?: string | undefined;
   fadeOut: boolean;
+  currentImage?: number;
 };
 
 export type WallpaperProps = {
@@ -11,6 +12,7 @@ export type WallpaperProps = {
   title?: string;
   top?: string;
   border?: string;
+  bg?: string;
 }[];
 
 export type GalleryExpandedProps = {

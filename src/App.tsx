@@ -10,7 +10,9 @@ import lazySizes from "lazysizes";
 function App() {
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [nextImage, setNextImage] = useState<number | null>(null);
-  const [title, setTitle] = useState<string | undefined>("");
+  const [title, setTitle] = useState<string | undefined>(
+    wallpaper[currentImage]?.title || "beach"
+  );
   const [fadeOut, setFadeOut] = useState<boolean>(false);
   const [expanded, setExpanded] = useState<boolean>(false);
   const titleRef = useRef(null);
@@ -66,7 +68,7 @@ function App() {
       >
         <LogoHeader />
         <SignupAndFreeTrial />
-
+        <YourFavorite bg={wallpaper[currentImage]?.bg} />
         <button
           onClick={() => setExpanded((expand) => !expand)}
           className={`absolute py-3 right-0 px-10  bg-cover  `}
@@ -112,6 +114,27 @@ function App() {
             );
           })}
         </section>
+        <div className="absolute bottom-0  -left-32">
+          <img src="star.png" alt="" width={80} height={80} />
+        </div>
+        <section
+          className={`absolute bottom-12  -left-11   ${wallpaper[currentImage]?.bg} transition-all duration-1000 p-2 rounded-3xl`}
+        >
+          <p
+            className={` font-semibold text-lg tracking-widest  bg-white text-black py-1 px-4 rounded-3xl`}
+          >
+            Satisfy Your Eyes
+          </p>
+        </section>
+        <section
+          className={`absolute -bottom-1 -left-11 ${wallpaper[currentImage]?.bg} p-2 rounded-3xl transition-all duration-1000`}
+        >
+          <p
+            className={` font-semibold text-lg tracking-widest  bg-white text-black py-1 px-4 rounded-3xl`}
+          >
+            With {wallpaper[currentImage]?.title} App
+          </p>
+        </section>
       </main>
 
       {/* gallery expanded*/}
@@ -124,6 +147,15 @@ function App() {
     </div>
   );
 }
+
+const YourFavorite = ({ bg }: { bg: string }) => {
+  return (
+    <div className="absolute -top-10 -right-[8.7rem] text-[0.7rem] text-center">
+      <p className="text-white  font-bold tracking-widest">YOUR FAVORITE</p>
+      <p className={`bg-white text-black rounded-md px-2`}>DESKTOP WALLPAPER</p>
+    </div>
+  );
+};
 
 const SignupAndFreeTrial = () => (
   <div

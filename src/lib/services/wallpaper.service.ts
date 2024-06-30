@@ -8,6 +8,7 @@ export const wallpaper: WallpaperProps = [
     title: "Beach",
     top: "top-10",
     border: "border-hardBlue",
+    bg: "bg-hardBlue",
   },
   {
     id: 1,
@@ -15,6 +16,7 @@ export const wallpaper: WallpaperProps = [
     color: "green",
     title: "Forest",
     border: "border-green-700",
+    bg: "bg-green-700",
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ export const wallpaper: WallpaperProps = [
     color: "purple",
     title: "Cyber Punk",
     border: "border-purple-600",
+    bg: "bg-purple-600",
   },
   {
     id: 3,
@@ -29,5 +32,6 @@ export const wallpaper: WallpaperProps = [
     color: "purple",
     title: "Cyber Punk",
     border: "border-purple-600",
+    bg: "bg-purple-600",
   },
 ];
