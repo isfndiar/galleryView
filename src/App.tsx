@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { wallpaper } from "./lib/services/wallpaper.service";
-import { DoorOpen, Maximize2, Minimize2 } from "lucide-react";
+import { DoorOpen, Maximize2, Minimize2, X } from "lucide-react";
 import LogoHeader from "./components/fragments/LogoHeader";
 import GalleryExpanded from "./components/fragments/galleryExpanded";
 import Background from "./components/fragments/background";
 import Typed from "typed.js";
 import lazySizes from "lazysizes";
+import { WallpaperProps } from "./lib/types";
 
 function App() {
   const [currentImage, setCurrentImage] = useState<number>(0);
@@ -89,32 +90,47 @@ function App() {
           <div className="absolute top-[calc(4rem+1px)] -left-[7.78rem] h-[1rem] bg-crime w-[0.4rem]" />
         </div>
 
-        <section
-          className={`absolute -left-32 top-20 flex flex-col  items-end  gap-3 h-60 scroll  w-[106px]  `}
-        >
-          <div className="absolute top-0 left-1 h-[23rem] bg-crime w-[0.4rem]" />
-          {wallpaper.map((item, i) => {
-            return (
-              <div
-                onClick={() => changeImage(i)}
-                className="relative group "
-                key={i}
-              >
-                <img
-                  className="lazyload w-20 h-20 rounded-2xl border-2 border-white "
-                  data-src={item.image}
-                  alt={item.image}
-                />
-                <p className="absolute left-2 top-7 z-40    text-white font-bold opacity-0 group-hover:opacity-100  cursor-pointer">
-                  Preview
-                </p>
-                <BackgroundGalleryTransparentHover />
-                <CircleWithLine i={i} />
-              </div>
-            );
-          })}
-        </section>
-        <div className="absolute bottom-0  -left-32">
+        <SideNavbarImage wallpaper={wallpaper} changeImage={changeImage} />
+        <div className="absolute -right-[calc(7rem+5px)] scale-75 top-44 flex flex-col items-end gap-1  px-3 py-1 pt-2 bg-crime rounded-3xl text-white -rotate-90">
+          <div className=" bg-red-white rounded-3xl h-2 w-5 mr-2"></div>
+          <p
+            className={`w-full px-2 font-bold tracking-widest rounded-3xl transition-all duration-700 ${wallpaper[currentImage]?.bg}`}
+          >
+            SOCIAL MEDIA
+          </p>
+        </div>
+        <div className="absolute -right-[calc(12rem+9px)] top-44 scale-75 flex flex-col items-end gap-1  px-3 py-1 pt-2 bg-crime rounded-3xl text-white rotate-90">
+          <div className=" bg-red-white rounded-3xl h-2 w-5 mr-2"></div>
+          <p
+            className={`w-full px-2 font-bold tracking-widest rounded-3xl transition-all duration-700 ${wallpaper[currentImage]?.bg}`}
+          >
+            SOCIAL MEDIA
+          </p>
+        </div>
+        <div className="absolute -right-[5.6rem]    top-[calc(9rem+1px)] ">
+          <img
+            className="p-2 rounded-full bg-crime"
+            src="instagram.svg"
+            width={35}
+            height={35}
+            alt=""
+          />
+          <img
+            className="p-2 rounded-full bg-crime"
+            src="facebook.svg"
+            width={35}
+            height={35}
+            alt=""
+          />
+          <img
+            className="p-2 rounded-full bg-crime"
+            src="x.svg"
+            width={35}
+            height={35}
+            alt=""
+          />
+        </div>
+        <div className="absolute bottom-0  -left-32 px-2 py-1">
           <img src="star.png" alt="" width={80} height={80} />
         </div>
         <section
@@ -191,4 +207,38 @@ const BackgroundGalleryTransparentHover = () => (
     className={`absolute inset-0 rounded-2xl bg-black group-hover:opacity-35 opacity-0 cursor-pointer `}
   />
 );
+
+const SideNavbarImage = (props: {
+  wallpaper: WallpaperProps;
+  changeImage: (i: number) => void;
+}) => {
+  const { wallpaper, changeImage } = props;
+  return (
+    <section
+      className={`absolute -left-32 top-20 flex flex-col  items-end  gap-3 h-60 scroll  w-[106px]  `}
+    >
+      <div className="absolute top-0 left-1 h-[23rem] bg-crime w-[0.4rem]" />
+      {wallpaper.map((item, i) => {
+        return (
+          <div
+            onClick={() => changeImage(i)}
+            className="relative group "
+            key={i}
+          >
+            <img
+              className="lazyload w-20 h-20 rounded-2xl border-2 border-white "
+              data-src={item.image}
+              alt={item.image}
+            />
+            <p className="absolute left-2 top-7 z-40    text-white font-bold opacity-0 group-hover:opacity-100  cursor-pointer">
+              Preview
+            </p>
+            <BackgroundGalleryTransparentHover />
+            <CircleWithLine i={i} />
+          </div>
+        );
+      })}
+    </section>
+  );
+};
 export default App;
