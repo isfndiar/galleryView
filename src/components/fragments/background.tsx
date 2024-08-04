@@ -9,7 +9,7 @@ const Background = ({ src, alt, fadeOut }: BackgroundProps) => {
         <img
           key={index}
           src={imageSrc}
-          className={`fixed inset-0 w-full h-screen object-cover  ${
+          className={`fixed inset-0 w-full h-full object-cover  ${
             src === imageSrc ? "fixed" : "hidden"
           }`}
           alt={alt}
