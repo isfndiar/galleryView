@@ -79,7 +79,7 @@ function App() {
 
   return (
     <div
-      className={`w-full h-screen md:p-1 md:block px-3 py-3  flex flex-col justify-center items-center   `}
+      className={`w-full md:h-screen h-full md:p-1 md:block px-3 py-3  flex flex-col justify-center items-center overflow-hidden   `}
     >
       <Background
         src={wallpaper[currentImage]?.image}
