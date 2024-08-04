@@ -1,6 +1,6 @@
 export type BackgroundProps = {
   src?: string;
-  alt?: string | undefined;
+  alt?: string;
   fadeOut: boolean;
   currentImage?: number;
 };
