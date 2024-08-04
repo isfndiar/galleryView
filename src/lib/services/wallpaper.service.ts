@@ -28,10 +28,10 @@ export const wallpaper: WallpaperProps = [
   },
   {
     id: 3,
-    image: "/image3.jpg",
-    color: "purple",
-    title: "Cyber Punk",
-    border: "border-purple-600",
-    bg: "bg-purple-600",
+    image: "/image4.jpg",
+    color: "orange",
+    title: "Lake",
+    border: "border-green-600",
+    bg: "bg-green-600",
   },
 ];

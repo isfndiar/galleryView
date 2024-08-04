@@ -1,7 +1,7 @@
 import { BackgroundProps } from "../../lib/types";
 
 const Background = ({ src, alt, fadeOut }: BackgroundProps) => {
-  const images = ["/image1.jpg", "/image2.jpg", "/image3.jpg"];
+  const images = ["/image1.jpg", "/image2.jpg", "/image3.jpg", "/image4.jpg"];
 
   return (
     <div>
