@@ -13,7 +13,7 @@ const Background = ({ src, alt, fadeOut }: BackgroundProps) => {
             src === imageSrc ? "fixed" : "hidden"
           }`}
           alt={alt}
-          priority={true}
+          priority
         />
       ))}
       <div
